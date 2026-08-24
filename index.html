@@ -1,0 +1,507 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>URMA — For minds that like to move</title>
+<meta name="description" content="Sensory objects for restless hands. Designed and printed in Estonia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Martian+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cobalt:#2B41D6;
+  --cobalt-deep:#16238C;
+  --cobalt-soft:#E2E6FA;
+  --ochre:#F2A63C;
+  --ochre-deep:#B87516;
+  --paper:#F4F2EB;
+  --ink:#14161C;
+  --white:#fff;
+
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,sans-serif;
+  --util:"Martian Mono",ui-monospace,monospace;
+
+  --gut:clamp(20px,5vw,64px);
+  --pad:clamp(64px,9vw,132px);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--body);font-size:17px;line-height:1.55;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:1320px;margin:0 auto;padding-inline:var(--gut)}
+
+.eyebrow{
+  font-family:var(--util);font-size:10px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+}
+
+/* ---------- ticker ---------- */
+.ticker{background:var(--cobalt);color:var(--white);overflow:hidden;padding:9px 0}
+.ticker-track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.ticker-track span{
+  font-family:var(--util);font-size:10.5px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;padding-inline:22px;white-space:nowrap;
+}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:60;background:rgba(244,242,235,.86);
+  backdrop-filter:blur(14px);border-bottom:1px solid rgba(20,22,28,.09);
+}
+.nav-in{display:flex;align-items:center;gap:22px;height:70px}
+.brand{display:flex;align-items:center;gap:11px;margin-right:auto}
+.brand .mark{width:30px;height:30px;flex:none}
+.wordmark{
+  font-family:var(--display);font-weight:800;font-size:23px;
+  letter-spacing:.09em;line-height:1;
+}
+.nav-links{display:flex;gap:26px}
+.nav-links a{
+  font-family:var(--util);font-size:10.5px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;padding:6px 0;
+  border-bottom:2px solid transparent;transition:border-color .2s;
+}
+.nav-links a:hover{border-bottom-color:var(--cobalt)}
+.cart{
+  font-family:var(--util);font-size:10.5px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;background:var(--ink);color:var(--paper);
+  padding:9px 15px;border-radius:100px;border:0;cursor:pointer;
+}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:clamp(48px,8vw,96px) clamp(56px,9vw,110px);overflow:hidden}
+.hero-in{position:relative;z-index:2;max-width:880px}
+.hero h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(48px,10.5vw,132px);line-height:.88;
+  letter-spacing:-.035em;text-wrap:balance;
+}
+.hero h1 em{font-style:normal;color:var(--cobalt)}
+.hero p{
+  margin-top:26px;max-width:39ch;font-size:clamp(17px,2vw,21px);
+  line-height:1.45;color:rgba(20,22,28,.72);
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{
+  font-family:var(--util);font-size:11px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;padding:16px 28px;border-radius:100px;
+  border:2px solid var(--ink);transition:transform .18s,background .18s,color .18s;
+  display:inline-block;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-blue{background:var(--cobalt);border-color:var(--cobalt);color:var(--white)}
+.btn-blue:hover{background:var(--cobalt-deep);border-color:var(--cobalt-deep)}
+.btn-amber{background:var(--ochre);border-color:var(--ink);color:var(--ink)}
+
+.hero-mark{
+  position:absolute;z-index:1;right:-16vw;top:50%;
+  width:min(72vw,760px);translate:0 -50%;color:var(--cobalt);opacity:.14;
+  animation:drift 46s linear infinite;pointer-events:none;
+}
+@keyframes drift{to{rotate:360deg}}
+@media(min-width:1000px){.hero-mark{right:-9vw;opacity:.2}}
+
+/* ---------- signature: two ways to move ---------- */
+.ways{border-block:1px solid rgba(20,22,28,.12)}
+.ways-head{padding:var(--pad) 0 clamp(30px,4vw,48px)}
+.ways-head h2{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(30px,5vw,60px);line-height:1;letter-spacing:-.028em;margin-top:14px;
+}
+.ways-head p{margin-top:16px;max-width:52ch;color:rgba(20,22,28,.68)}
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(20,22,28,.12)}
+@media(max-width:800px){.panels{grid-template-columns:1fr}}
+.panel{
+  padding:clamp(36px,5vw,64px) var(--gut) clamp(40px,5vw,68px);
+  display:flex;flex-direction:column;align-items:flex-start;
+  min-height:clamp(420px,52vw,540px);position:relative;
+}
+.panel--settle{background:var(--cobalt);color:var(--white)}
+.panel--play{background:var(--ochre);color:var(--ink);border-left:1px solid rgba(20,22,28,.14)}
+@media(max-width:800px){.panel--play{border-left:0;border-top:1px solid rgba(20,22,28,.14)}}
+.panel h3{
+  font-family:var(--display);font-weight:800;font-size:clamp(30px,4.4vw,52px);
+  line-height:.95;letter-spacing:-.028em;margin-top:12px;
+}
+.panel .spec{
+  font-family:var(--util);font-size:10px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;margin-top:14px;opacity:.72;
+}
+.panel .blurb{margin-top:16px;max-width:31ch;font-size:16.5px;line-height:1.5;opacity:.9}
+
+.stage{
+  margin:auto auto 0;width:100%;display:flex;flex-direction:column;
+  align-items:center;gap:18px;padding-top:24px;
+}
+.puck{
+  width:clamp(150px,22vw,224px);border:0;background:none;padding:0;cursor:pointer;
+  color:currentColor;touch-action:manipulation;
+}
+.puck svg{width:100%;height:auto}
+.hint{
+  font-family:var(--util);font-size:9.5px;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;opacity:.6;
+}
+
+/* squish (TPU) */
+.puck--settle svg{transition:transform .5s cubic-bezier(.2,1.5,.4,1)}
+.puck--settle.is-on svg{transform:scale(1.2,.7)}
+.puck--settle:not(.is-on) svg{animation:rebound .62s cubic-bezier(.22,1,.36,1)}
+@keyframes rebound{
+  0%{transform:scale(1.2,.7)}40%{transform:scale(.9,1.12)}
+  70%{transform:scale(1.05,.96)}100%{transform:scale(1,1)}
+}
+/* detent spin (PLA) */
+.puck--play svg{transition:rotate .5s cubic-bezier(.2,.8,.3,1)}
+.puck--play.is-on svg{animation:wheel 1.15s linear infinite}
+@keyframes wheel{from{rotate:0deg}to{rotate:360deg}}
+
+/* ---------- products ---------- */
+.shop{padding-block:var(--pad)}
+.shop-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.shop-head h2{
+  font-family:var(--display);font-weight:700;font-size:clamp(28px,4.4vw,52px);
+  line-height:1;letter-spacing:-.028em;margin-top:12px;
+}
+.rail{
+  display:flex;gap:18px;margin-top:36px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding-bottom:14px;scrollbar-width:thin;
+  margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut);
+}
+.card{
+  flex:0 0 clamp(230px,27vw,290px);scroll-snap-align:start;
+  background:var(--white);border:1px solid rgba(20,22,28,.13);border-radius:20px;
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(20,22,28,.11)}
+.card-art{
+  aspect-ratio:1;display:grid;place-items:center;position:relative;
+  transition:background .3s;
+}
+.card-art svg{width:52%;height:auto;color:rgba(255,255,255,.9)}
+.tag{
+  position:absolute;top:13px;left:13px;font-family:var(--util);font-size:9px;
+  font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(255,255,255,.92);color:var(--ink);padding:5px 9px;border-radius:100px;
+}
+.card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:9px;flex:1}
+.card-body h3{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.015em}
+.card-body p{font-size:14.5px;line-height:1.45;color:rgba(20,22,28,.66);flex:1}
+.card-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:4px}
+.price{font-family:var(--util);font-size:13px;font-weight:600}
+.chips{display:flex;gap:6px}
+.chip{
+  width:19px;height:19px;border-radius:50%;border:1.5px solid rgba(20,22,28,.22);
+  cursor:pointer;padding:0;transition:transform .15s;
+}
+.chip:hover,.chip[aria-pressed="true"]{transform:scale(1.22)}
+.chip[aria-pressed="true"]{border-color:var(--ink);border-width:2.5px}
+
+/* ---------- made ---------- */
+.made{background:var(--ink);color:var(--paper);padding-block:var(--pad)}
+.made h2{
+  font-family:var(--display);font-weight:700;font-size:clamp(28px,4.4vw,52px);
+  line-height:1;letter-spacing:-.028em;margin-top:12px;max-width:16ch;
+}
+.made .lede{margin-top:20px;max-width:50ch;color:rgba(244,242,235,.72)}
+.specs{
+  margin-top:clamp(36px,5vw,58px);display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  border-top:1px solid rgba(244,242,235,.2);
+}
+.spec-cell{padding:24px 0 26px;border-bottom:1px solid rgba(244,242,235,.2);padding-right:24px}
+.spec-cell dt{
+  font-family:var(--util);font-size:9.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(244,242,235,.5);
+}
+.spec-cell dd{font-family:var(--display);font-weight:500;font-size:23px;margin-top:9px;letter-spacing:-.015em}
+.spec-cell small{display:block;font-size:13px;color:rgba(244,242,235,.55);margin-top:6px;line-height:1.4}
+
+
+/* ---------- signup ---------- */
+.signup{background:var(--cobalt);color:var(--white);padding-block:var(--pad)}
+.signup h2{
+  font-family:var(--display);font-weight:800;font-size:clamp(30px,5.6vw,68px);
+  line-height:.94;letter-spacing:-.032em;max-width:14ch;margin-top:12px;
+}
+.signup p{margin-top:16px;max-width:44ch;color:rgba(255,255,255,.8)}
+.form{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px;max-width:520px}
+.form input{
+  flex:1 1 240px;background:transparent;border:2px solid rgba(255,255,255,.42);
+  border-radius:100px;padding:15px 22px;color:var(--white);
+  font-family:var(--body);font-size:16px;
+}
+.form input::placeholder{color:rgba(255,255,255,.55)}
+.form input:focus{border-color:var(--white);outline:none}
+.form button{
+  font-family:var(--util);font-size:11px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;background:var(--white);color:var(--cobalt);
+  border:2px solid var(--white);border-radius:100px;padding:15px 28px;cursor:pointer;
+}
+.note{margin-top:14px;font-size:13px;color:rgba(255,255,255,.62);max-width:46ch}
+.said{margin-top:18px;font-family:var(--util);font-size:11px;letter-spacing:.1em;display:none}
+.said.on{display:block}
+
+/* ---------- footer ---------- */
+.foot{padding-block:clamp(48px,6vw,76px) 34px}
+.foot-grid{display:grid;gap:34px;grid-template-columns:1.6fr 1fr 1fr 1fr}
+@media(max-width:800px){.foot-grid{grid-template-columns:1fr 1fr}}
+.foot h4{font-family:var(--util);font-size:9.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(20,22,28,.5);margin-bottom:14px}
+.foot ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:15px}
+.foot ul a:hover{color:var(--cobalt)}
+.foot-mantra{font-family:var(--display);font-weight:700;font-size:clamp(21px,2.6vw,30px);letter-spacing:-.022em;max-width:15ch;margin-top:16px}
+.foot-base{
+  margin-top:clamp(44px,5vw,64px);padding-top:22px;border-top:1px solid rgba(20,22,28,.14);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  font-family:var(--util);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(20,22,28,.5);
+}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker">
+  <div class="ticker-track" id="tick"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <span class="mark"><svg viewBox="-110 -110 220 220" aria-hidden="true"><use href="#rosette"/></svg></span>
+      <span class="wordmark">URMA</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#ways">Settle</a>
+      <a href="#ways">Play</a>
+      <a href="#shop">Shop</a>
+      <a href="#made">Made in Estonia</a>
+    </nav>
+    <button class="cart">Cart&nbsp;(0)</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-mark"><svg viewBox="-110 -110 220 220" aria-hidden="true"><use href="#rosette"/></svg></div>
+  <div class="wrap hero-in">
+    <p class="eyebrow">Designed and printed in Estonia</p>
+    <h1 style="margin-top:20px">For minds that&nbsp;like to <em>move</em>.</h1>
+    <p>Tools for restless hands and minds. Two lines of products: one to calm you down, one to help you think.</p>
+    <div class="hero-cta">
+      <a class="btn btn-blue" href="#ways">Meet Settle</a>
+      <a class="btn btn-amber" href="#ways">Meet Play</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE ============ -->
+<section class="ways" id="ways">
+  <div class="wrap ways-head rv">
+    <p class="eyebrow">The two ranges</p>
+    <h2>Same brand. Two behaviours.</h2>
+    <p>Your mind doesn&rsquo;t always want the same thing. Sometimes you need to cool it off and decompress. Sometimes you need to think, play, and get something finished. Either way your hands want a job &mdash; so we make one for both moods.</p>
+  </div>
+
+  <div class="panels">
+    <div class="panel panel--settle">
+      <p class="eyebrow" style="opacity:.7">Range 01 — TPU</p>
+      <h3>URMA<br>Settle</h3>
+      <p class="spec">Flexible · Shore 85A–95A · Matte</p>
+      <p class="blurb">Soft, silent, slightly squishy. No clicks and no gears &mdash; just something that gives under your thumb and comes back. Hands settle first; minds follow.</p>
+      <div class="stage">
+        <button class="puck puck--settle" aria-label="Press and hold to squish the Settle mark">
+          <svg viewBox="-110 -110 220 220" aria-hidden="true"><use href="#rosette"/></svg>
+        </button>
+        <span class="hint">Press and hold</span>
+      </div>
+    </div>
+
+    <div class="panel panel--play">
+      <p class="eyebrow" style="opacity:.7">Range 02 — PLA</p>
+      <h3>URMA<br>Play</h3>
+      <p class="spec">Rigid · Print-in-place · Silk &amp; matte</p>
+      <p class="blurb">Rigid, clicky, and satisfying to run. Gears and stops that keep your hands moving at the pace of your thoughts.</p>
+      <div class="stage">
+        <button class="puck puck--play" aria-label="Press and hold to spin the Play mark">
+          <svg viewBox="-110 -110 220 220" aria-hidden="true"><use href="#rosette"/></svg>
+        </button>
+        <span class="hint">Press and hold</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOP ============ -->
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="shop-head rv">
+      <div>
+        <p class="eyebrow">Six objects</p>
+        <h2>Pick one up.</h2>
+      </div>
+      <p class="eyebrow" style="opacity:.5">Scroll →</p>
+    </div>
+  </div>
+  <div class="wrap"><div class="rail" id="rail"></div></div>
+</section>
+
+<!-- ============ MADE ============ -->
+<section class="made" id="made">
+  <div class="wrap">
+    <div class="rv">
+      <p class="eyebrow" style="color:var(--ochre)">Materials and testing</p>
+      <h2>Designed and printed in Estonia. Backed by science.</h2>
+      <p class="lede">We print every product in Estonia using certified materials that are safe to handle &mdash; children included. And we test what we make alongside clinical psychologists and their patients, so the promise holds up: the right object for the mood you&rsquo;re trying to reach.</p>
+    </div>
+    <dl class="specs rv">
+      <div class="spec-cell"><dt>Settle material</dt><dd>TPU 95A</dd><small>Flexible thermoplastic polyurethane. Oil-resistant, doesn't crack, survives a washing machine.</small></div>
+      <div class="spec-cell"><dt>Play material</dt><dd>PLA</dd><small>Plant-derived, rigid, holds a crisp mechanism. Recyclable through our take-back box.</small></div>
+      <div class="spec-cell"><dt>Layer height</dt><dd>0.15 mm</dd><small>Fine enough that gears mesh and edges feel finished, not printed.</small></div>
+      <div class="spec-cell"><dt>Made to order</dt><dd>3–5 days</dd><small>We print after you order. Nothing sits in a warehouse waiting to be thrown away.</small></div>
+    </dl>
+  </div>
+</section>
+
+
+<!-- ============ SIGNUP ============ -->
+<section class="signup">
+  <div class="wrap">
+    <p class="eyebrow" style="opacity:.7">The list</p>
+    <h2>New shapes, roughly monthly.</h2>
+    <p>We&rsquo;re always working on the next one &mdash; new shapes, new mechanisms, new colours. Sign up and you&rsquo;ll see them before anyone else.</p>
+    <div class="form">
+      <input type="email" id="mail" placeholder="you@example.com" aria-label="Email address">
+      <button id="go">Join the list</button>
+    </div>
+    <p class="said" id="said">✳ You're on the list.</p>
+    <p class="note">You can leave any time. URMA objects are sensory tools and toys, not medical devices.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#top" style="margin:0">
+          <span class="mark"><svg viewBox="-110 -110 220 220" aria-hidden="true"><use href="#rosette"/></svg></span>
+          <span class="wordmark">URMA</span>
+        </a>
+        <p class="foot-mantra">For minds that like to move.</p>
+      </div>
+      <div><h4>Shop</h4><ul>
+        <li><a href="#ways">URMA Settle</a></li><li><a href="#ways">URMA Play</a></li>
+        <li><a href="#shop">All objects</a></li><li><a href="#shop">Gift sets</a></li></ul></div>
+      <div><h4>About</h4><ul>
+        <li><a href="#made">How we print</a></li><li><a href="#made">Materials</a></li>
+        <li><a href="#">Wholesale</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h4>Follow</h4><ul>
+        <li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Printables</a></li></ul></div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 URMA OÜ · Tallinn</span>
+      <span>Terms · Privacy · Returns</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ THE MARK ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="rosette"><path fill="currentColor" fill-rule="evenodd" d="M58.0 0.0L59.0 2.3L61.8 4.9L66.2 7.8L71.6 11.3L77.5 15.4L83.1 20.0L87.9 24.8L91.3 29.7L92.9 34.3L92.4 38.3L89.9 41.4L85.5 43.6L79.7 44.6L72.9 44.7L65.7 43.9L58.7 42.6L52.3 41.3L47.2 40.3L43.3 40.1L41.0 41.0L40.1 43.3L40.3 47.2L41.3 52.3L42.6 58.7L43.9 65.7L44.7 72.9L44.6 79.7L43.6 85.5L41.4 89.9L38.3 92.4L34.3 92.9L29.7 91.3L24.8 87.9L20.0 83.1L15.4 77.5L11.3 71.6L7.8 66.2L4.9 61.8L2.3 59.0L0.0 58.0L-2.3 59.0L-4.9 61.8L-7.8 66.2L-11.3 71.6L-15.4 77.5L-20.0 83.1L-24.8 87.9L-29.7 91.3L-34.3 92.9L-38.3 92.4L-41.4 89.9L-43.6 85.5L-44.6 79.7L-44.7 72.9L-43.9 65.7L-42.6 58.7L-41.3 52.3L-40.3 47.2L-40.1 43.3L-41.0 41.0L-43.3 40.1L-47.2 40.3L-52.3 41.3L-58.7 42.6L-65.7 43.9L-72.9 44.7L-79.7 44.6L-85.5 43.6L-89.9 41.4L-92.4 38.3L-92.9 34.3L-91.3 29.7L-87.9 24.8L-83.1 20.0L-77.5 15.4L-71.6 11.3L-66.2 7.8L-61.8 4.9L-59.0 2.3L-58.0 0.0L-59.0 -2.3L-61.8 -4.9L-66.2 -7.8L-71.6 -11.3L-77.5 -15.4L-83.1 -20.0L-87.9 -24.8L-91.3 -29.7L-92.9 -34.3L-92.4 -38.3L-89.9 -41.4L-85.5 -43.6L-79.7 -44.6L-72.9 -44.7L-65.7 -43.9L-58.7 -42.6L-52.3 -41.3L-47.2 -40.3L-43.3 -40.1L-41.0 -41.0L-40.1 -43.3L-40.3 -47.2L-41.3 -52.3L-42.6 -58.7L-43.9 -65.7L-44.7 -72.9L-44.6 -79.7L-43.6 -85.5L-41.4 -89.9L-38.3 -92.4L-34.3 -92.9L-29.7 -91.3L-24.8 -87.9L-20.0 -83.1L-15.4 -77.5L-11.3 -71.6L-7.8 -66.2L-4.9 -61.8L-2.3 -59.0L-0.0 -58.0L2.3 -59.0L4.9 -61.8L7.8 -66.2L11.3 -71.6L15.4 -77.5L20.0 -83.1L24.8 -87.9L29.7 -91.3L34.3 -92.9L38.3 -92.4L41.4 -89.9L43.6 -85.5L44.6 -79.7L44.7 -72.9L43.9 -65.7L42.6 -58.7L41.3 -52.3L40.3 -47.2L40.1 -43.3L41.0 -41.0L43.3 -40.1L47.2 -40.3L52.3 -41.3L58.7 -42.6L65.7 -43.9L72.9 -44.7L79.7 -44.6L85.5 -43.6L89.9 -41.4L92.4 -38.3L92.9 -34.3L91.3 -29.7L87.9 -24.8L83.1 -20.0L77.5 -15.4L71.6 -11.3L66.2 -7.8L61.8 -4.9L59.0 -2.3ZM40.0 0.0L40.7 1.6L42.5 3.3L45.5 5.4L49.1 7.8L53.0 10.5L56.7 13.6L59.9 16.9L62.1 20.2L63.2 23.3L62.8 26.0L61.1 28.2L58.2 29.7L54.3 30.4L49.7 30.5L44.9 30.0L40.2 29.2L35.9 28.3L32.4 27.7L29.9 27.6L28.3 28.3L27.6 29.9L27.7 32.4L28.3 35.9L29.2 40.2L30.0 44.9L30.5 49.7L30.4 54.3L29.7 58.2L28.2 61.1L26.0 62.8L23.3 63.2L20.2 62.1L16.9 59.9L13.6 56.7L10.5 53.0L7.8 49.1L5.4 45.5L3.3 42.5L1.6 40.7L0.0 40.0L-1.6 40.7L-3.3 42.5L-5.4 45.5L-7.8 49.1L-10.5 53.0L-13.6 56.7L-16.9 59.9L-20.2 62.1L-23.3 63.2L-26.0 62.8L-28.2 61.1L-29.7 58.2L-30.4 54.3L-30.5 49.7L-30.0 44.9L-29.2 40.2L-28.3 35.9L-27.7 32.4L-27.6 29.9L-28.3 28.3L-29.9 27.6L-32.4 27.7L-35.9 28.3L-40.2 29.2L-44.9 30.0L-49.7 30.5L-54.3 30.4L-58.2 29.7L-61.1 28.2L-62.8 26.0L-63.2 23.3L-62.1 20.2L-59.9 16.9L-56.7 13.6L-53.0 10.5L-49.1 7.8L-45.5 5.4L-42.5 3.3L-40.7 1.6L-40.0 0.0L-40.7 -1.6L-42.5 -3.3L-45.5 -5.4L-49.1 -7.8L-53.0 -10.5L-56.7 -13.6L-59.9 -16.9L-62.1 -20.2L-63.2 -23.3L-62.8 -26.0L-61.1 -28.2L-58.2 -29.7L-54.3 -30.4L-49.7 -30.5L-44.9 -30.0L-40.2 -29.2L-35.9 -28.3L-32.4 -27.7L-29.9 -27.6L-28.3 -28.3L-27.6 -29.9L-27.7 -32.4L-28.3 -35.9L-29.2 -40.2L-30.0 -44.9L-30.5 -49.7L-30.4 -54.3L-29.7 -58.2L-28.2 -61.1L-26.0 -62.8L-23.3 -63.2L-20.2 -62.1L-16.9 -59.9L-13.6 -56.7L-10.5 -53.0L-7.8 -49.1L-5.4 -45.5L-3.3 -42.5L-1.6 -40.7L-0.0 -40.0L1.6 -40.7L3.3 -42.5L5.4 -45.5L7.8 -49.1L10.5 -53.0L13.6 -56.7L16.9 -59.9L20.2 -62.1L23.3 -63.2L26.0 -62.8L28.2 -61.1L29.7 -58.2L30.4 -54.3L30.5 -49.7L30.0 -44.9L29.2 -40.2L28.3 -35.9L27.7 -32.4L27.6 -29.9L28.3 -28.3L29.9 -27.6L32.4 -27.7L35.9 -28.3L40.2 -29.2L44.9 -30.0L49.7 -30.5L54.3 -30.4L58.2 -29.7L61.1 -28.2L62.8 -26.0L63.2 -23.3L62.1 -20.2L59.9 -16.9L56.7 -13.6L53.0 -10.5L49.1 -7.8L45.5 -5.4L42.5 -3.3L40.7 -1.6ZM30.0 0.0L30.5 1.2L32.0 2.5L34.3 4.1L37.1 5.9L40.2 8.0L43.2 10.4L45.7 12.9L47.5 15.4L48.3 17.8L48.0 19.9L46.7 21.5L44.5 22.7L41.4 23.2L37.9 23.2L34.1 22.8L30.4 22.1L27.1 21.4L24.4 20.8L22.4 20.7L21.2 21.2L20.7 22.4L20.8 24.4L21.4 27.1L22.1 30.4L22.8 34.1L23.2 37.9L23.2 41.4L22.7 44.5L21.5 46.7L19.9 48.0L17.8 48.3L15.4 47.5L12.9 45.7L10.4 43.2L8.0 40.2L5.9 37.1L4.1 34.3L2.5 32.0L1.2 30.5L0.0 30.0L-1.2 30.5L-2.5 32.0L-4.1 34.3L-5.9 37.1L-8.0 40.2L-10.4 43.2L-12.9 45.7L-15.4 47.5L-17.8 48.3L-19.9 48.0L-21.5 46.7L-22.7 44.5L-23.2 41.4L-23.2 37.9L-22.8 34.1L-22.1 30.4L-21.4 27.1L-20.8 24.4L-20.7 22.4L-21.2 21.2L-22.4 20.7L-24.4 20.8L-27.1 21.4L-30.4 22.1L-34.1 22.8L-37.9 23.2L-41.4 23.2L-44.5 22.7L-46.7 21.5L-48.0 19.9L-48.3 17.8L-47.5 15.4L-45.7 12.9L-43.2 10.4L-40.2 8.0L-37.1 5.9L-34.3 4.1L-32.0 2.5L-30.5 1.2L-30.0 0.0L-30.5 -1.2L-32.0 -2.5L-34.3 -4.1L-37.1 -5.9L-40.2 -8.0L-43.2 -10.4L-45.7 -12.9L-47.5 -15.4L-48.3 -17.8L-48.0 -19.9L-46.7 -21.5L-44.5 -22.7L-41.4 -23.2L-37.9 -23.2L-34.1 -22.8L-30.4 -22.1L-27.1 -21.4L-24.4 -20.8L-22.4 -20.7L-21.2 -21.2L-20.7 -22.4L-20.8 -24.4L-21.4 -27.1L-22.1 -30.4L-22.8 -34.1L-23.2 -37.9L-23.2 -41.4L-22.7 -44.5L-21.5 -46.7L-19.9 -48.0L-17.8 -48.3L-15.4 -47.5L-12.9 -45.7L-10.4 -43.2L-8.0 -40.2L-5.9 -37.1L-4.1 -34.3L-2.5 -32.0L-1.2 -30.5L-0.0 -30.0L1.2 -30.5L2.5 -32.0L4.1 -34.3L5.9 -37.1L8.0 -40.2L10.4 -43.2L12.9 -45.7L15.4 -47.5L17.8 -48.3L19.9 -48.0L21.5 -46.7L22.7 -44.5L23.2 -41.4L23.2 -37.9L22.8 -34.1L22.1 -30.4L21.4 -27.1L20.8 -24.4L20.7 -22.4L21.2 -21.2L22.4 -20.7L24.4 -20.8L27.1 -21.4L30.4 -22.1L34.1 -22.8L37.9 -23.2L41.4 -23.2L44.5 -22.7L46.7 -21.5L48.0 -19.9L48.3 -17.8L47.5 -15.4L45.7 -12.9L43.2 -10.4L40.2 -8.0L37.1 -5.9L34.3 -4.1L32.0 -2.5L30.5 -1.2ZM20.0 0.0L20.3 0.8L21.3 1.7L22.7 2.7L24.5 3.9L26.5 5.3L28.4 6.8L29.9 8.4L31.1 10.1L31.6 11.6L31.4 13.0L30.6 14.1L29.1 14.8L27.1 15.2L24.9 15.2L22.4 15.0L20.1 14.6L18.0 14.2L16.2 13.9L14.9 13.8L14.1 14.1L13.8 14.9L13.9 16.2L14.2 18.0L14.6 20.1L15.0 22.4L15.2 24.9L15.2 27.1L14.8 29.1L14.1 30.6L13.0 31.4L11.6 31.6L10.1 31.1L8.4 29.9L6.8 28.4L5.3 26.5L3.9 24.5L2.7 22.7L1.7 21.3L0.8 20.3L0.0 20.0L-0.8 20.3L-1.7 21.3L-2.7 22.7L-3.9 24.5L-5.3 26.5L-6.8 28.4L-8.4 29.9L-10.1 31.1L-11.6 31.6L-13.0 31.4L-14.1 30.6L-14.8 29.1L-15.2 27.1L-15.2 24.9L-15.0 22.4L-14.6 20.1L-14.2 18.0L-13.9 16.2L-13.8 14.9L-14.1 14.1L-14.9 13.8L-16.2 13.9L-18.0 14.2L-20.1 14.6L-22.4 15.0L-24.9 15.2L-27.1 15.2L-29.1 14.8L-30.6 14.1L-31.4 13.0L-31.6 11.6L-31.1 10.1L-29.9 8.4L-28.4 6.8L-26.5 5.3L-24.5 3.9L-22.7 2.7L-21.3 1.7L-20.3 0.8L-20.0 0.0L-20.3 -0.8L-21.3 -1.7L-22.7 -2.7L-24.5 -3.9L-26.5 -5.3L-28.4 -6.8L-29.9 -8.4L-31.1 -10.1L-31.6 -11.6L-31.4 -13.0L-30.6 -14.1L-29.1 -14.8L-27.1 -15.2L-24.9 -15.2L-22.4 -15.0L-20.1 -14.6L-18.0 -14.2L-16.2 -13.9L-14.9 -13.8L-14.1 -14.1L-13.8 -14.9L-13.9 -16.2L-14.2 -18.0L-14.6 -20.1L-15.0 -22.4L-15.2 -24.9L-15.2 -27.1L-14.8 -29.1L-14.1 -30.6L-13.0 -31.4L-11.6 -31.6L-10.1 -31.1L-8.4 -29.9L-6.8 -28.4L-5.3 -26.5L-3.9 -24.5L-2.7 -22.7L-1.7 -21.3L-0.8 -20.3L-0.0 -20.0L0.8 -20.3L1.7 -21.3L2.7 -22.7L3.9 -24.5L5.3 -26.5L6.8 -28.4L8.4 -29.9L10.1 -31.1L11.6 -31.6L13.0 -31.4L14.1 -30.6L14.8 -29.1L15.2 -27.1L15.2 -24.9L15.0 -22.4L14.6 -20.1L14.2 -18.0L13.9 -16.2L13.8 -14.9L14.1 -14.1L14.9 -13.8L16.2 -13.9L18.0 -14.2L20.1 -14.6L22.4 -15.0L24.9 -15.2L27.1 -15.2L29.1 -14.8L30.6 -14.1L31.4 -13.0L31.6 -11.6L31.1 -10.1L29.9 -8.4L28.4 -6.8L26.5 -5.3L24.5 -3.9L22.7 -2.7L21.3 -1.7L20.3 -0.8ZM17 0A17 17 0 1 0-17 0A17 17 0 1 0 17 0Z"/></g>
+</defs></svg>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ticker */
+  var msgs = ['For minds that like to move','Designed and printed in Estonia',
+              'Made to order in 3–5 days','Free shipping over €40'];
+  var line = msgs.map(function(m){return '<span>'+m+' &nbsp;✳</span>'}).join('');
+  document.getElementById('tick').innerHTML = line + line + line + line;
+
+  /* products */
+  var mark = '<svg viewBox="-110 -110 220 220" aria-hidden="true"><use href="#rosette"/></svg>';
+  var items = [
+    {n:'Whorl', r:'Settle', p:'18', d:'A spiral you can press flat. The ridges come back slower than you expect.', c:['#2B41D6','#7C8BEE','#1D2A73']},
+    {n:'Pebble', r:'Settle', p:'14', d:'Palm-sized and deliberately uneven. Your thumb finds the dent on its own.', c:['#4E63E0','#A9B3F2','#2B41D6']},
+    {n:'Knot',  r:'Settle', p:'22', d:'One continuous loop. Stretch it, twist it, drop it in a pocket.', c:['#3550DC','#8FA0F0','#16238C']},
+    {n:'Detent', r:'Play', p:'24', d:'Eight clicks to a full turn. You will end up counting them.', c:['#F2A63C','#E4802A','#C25E12']},
+    {n:'Orbit',  r:'Play', p:'29', d:'Planetary gears, printed already assembled. Nothing to build.', c:['#EE9A2A','#F7BE6B','#B87516']},
+    {n:'Bolt',   r:'Play', p:'19', d:'Throw it forward, catch it back. Pocket-sized momentum.', c:['#F4B054','#E08E1F','#A8681A']}
+  ];
+  var rail = document.getElementById('rail');
+  rail.innerHTML = items.map(function(it,i){
+    return '<article class="card">'+
+      '<div class="card-art" data-i="'+i+'" style="background:'+it.c[0]+'">'+
+        '<span class="tag">'+it.r+'</span>'+mark+
+      '</div>'+
+      '<div class="card-body"><h3>'+it.n+'</h3><p>'+it.d+'</p>'+
+      '<div class="card-foot"><span class="price">€'+it.p+'</span>'+
+      '<div class="chips">'+it.c.map(function(col,j){
+        return '<button class="chip" style="background:'+col+'" data-i="'+i+'" data-c="'+col+'" '+
+               'aria-pressed="'+(j===0)+'" aria-label="Colour '+(j+1)+' of '+it.n+'"></button>'
+      }).join('')+'</div></div></div></article>'
+  }).join('');
+
+  rail.addEventListener('click', function(e){
+    var chip = e.target.closest('.chip'); if(!chip) return;
+    var i = chip.dataset.i;
+    rail.querySelector('.card-art[data-i="'+i+'"]').style.background = chip.dataset.c;
+    chip.parentNode.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed', c===chip)});
+  });
+
+  /* press-and-hold pucks */
+  document.querySelectorAll('.puck').forEach(function(el){
+    var on = function(){el.classList.add('is-on')};
+    var off = function(){el.classList.remove('is-on')};
+    ['mousedown','touchstart','keydown'].forEach(function(ev){
+      el.addEventListener(ev, function(e){
+        if(ev==='keydown' && e.key!==' ' && e.key!=='Enter') return;
+        if(ev==='touchstart') e.preventDefault();
+        on();
+      }, {passive:ev==='touchstart'?false:true});
+    });
+    ['mouseup','mouseleave','touchend','touchcancel','keyup','blur'].forEach(function(ev){
+      el.addEventListener(ev, off);
+    });
+  });
+
+  /* newsletter */
+  document.getElementById('go').addEventListener('click', function(){
+    var v = document.getElementById('mail').value.trim();
+    var said = document.getElementById('said');
+    if(!/^\S+@\S+\.\S+$/.test(v)){ said.textContent='✳ That address is missing something.'; }
+    else { said.textContent='✳ You\u2019re on the list.'; document.getElementById('mail').value=''; }
+    said.classList.add('on');
+  });
+
+  /* reveals */
+  if(!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rv').forEach(function(n){io.observe(n)});
+  } else {
+    document.querySelectorAll('.rv').forEach(function(n){n.classList.add('in')});
+  }
+})();
+</script>
