@@ -28,7 +28,7 @@
       <span class="wordmark">URMA</span>
     </a>
     <nav class="nav-links" id="navlinks"><a href="#why">Why fidget</a><a href="#moods">Two moods</a><a href="#range">The range</a><a href="#materials">Materials</a></nav>
-    <a class="cart" href="#feedback">Try &amp; tell us</a>
+    <a class="cart" href="#feedback" data-mode="try">Try &amp; tell us</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="navlinks">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
@@ -45,7 +45,7 @@
     <p>URMA makes sensory fidget objects for restless hands. We are testing them with real people before we open a shop, so the best way to meet us is to hold one and tell us what you think.</p>
     <div class="cta-row">
       <a class="btn btn-blue" href="#why">Why fidget</a>
-      <a class="btn btn-amber" href="#feedback">Try one</a>
+      <a class="btn btn-amber" href="#feedback" data-mode="try">Try one</a>
     </div>
   </div>
 </section>
@@ -101,7 +101,7 @@
       <h3>URMA<br>Settle</h3>
       <p class="spec">Flexible &middot; Shore 90&ndash;98A &middot; Matte</p>
       <p class="blurb">Soft, silent, slightly squishy. No clicks and no gears, just something that gives under your thumb and comes back. Hands settle first; minds follow.</p>
-      <a class="plink" href="#feedback" data-pick="Settle">Try Settle</a>
+      <a class="plink" href="#feedback" data-mode="try" data-interest="Settle (soft TPU)">Try Settle</a>
       <div class="stage">
         <button class="puck puck--settle" type="button" aria-label="Press and hold to squish the Settle mark">
           <svg viewBox="0 0 529.9 532.09" aria-hidden="true"><use href="#rosette"/></svg></button>
@@ -113,7 +113,7 @@
       <h3>URMA<br>Play</h3>
       <p class="spec">Rigid &middot; Silk &amp; matte</p>
       <p class="blurb">Rigid, clicky and satisfying to play with. Crisp actions and a sharp material keep your hands moving at the pace of your thoughts.</p>
-      <a class="plink" href="#feedback" data-pick="Play">Try Play</a>
+      <a class="plink" href="#feedback" data-mode="try" data-interest="Play (rigid PLA)">Try Play</a>
       <div class="stage">
         <button class="puck puck--play" type="button" aria-label="Press and hold to spin the Play mark">
           <svg viewBox="0 0 529.9 532.09" aria-hidden="true"><use href="#rosette"/></svg></button>
@@ -127,49 +127,39 @@
   <div class="wrap">
     <p class="eyebrow">The range</p>
     <h2 class="h2">Pick a shape.</h2>
-    <p class="sub">Tap &ldquo;I&rsquo;d try this&rdquo; on any shape and tell us below.</p>
+    <p class="sub">Tap &ldquo;I&rsquo;d try this&rdquo; on every shape you would like to hold. Votes are counted live, and you can take yours back.</p>
+    <p class="votenote" id="votenote" aria-live="polite"></p>
 
-    <div class="feature">
-      <article class="feat feat--settle">
-        <div class="gal gal--soft"><span class="feat-tag r-settle">Settle</span><img src="images/infinity-cube-in-blue-tpu.webp" alt="URMA Infinity Cube in blue TPU" width="1932" height="1932" class="on cut"></div>
-        <div class="feat-body">
-          <h3>Infinity Cube</h3>
-          <p>One piece, printed in a single run. The TPU is soft and squishy. The four-facet cube turns into an eight-facet rectangle and back into a cube again, in a loop that is both satisfying and calming.</p>
-          <p class="feat-meta">TPU 98A &middot; Matte</p>
-          <div class="feat-foot"><span></span><a class="pick" href="#feedback" data-pick="Infinity Cube (TPU)">I&rsquo;d try this</a></div>
-        </div>
+    <div class="grid">
+      <article class="card">
+        <div class="gal"><span class="tag r-settle">Settle</span><img src="images/infinity-cube-in-tpu-folded-into-a-cube.jpeg" alt="URMA Infinity Cube in TPU, folded into a cube" width="1932" height="1932" class="on"><img src="images/infinity-cube-in-tpu-opened-into-a-rectangle.jpeg" alt="URMA Infinity Cube in TPU, opened into a rectangle" width="1932" height="1932" loading="lazy"><div class="dots"><button type="button" aria-label="Show photo 1 of 2" aria-pressed="true"></button><button type="button" aria-label="Show photo 2 of 2" aria-pressed="false"></button></div></div>
+        <div class="card-body"><h3>Infinity Cube</h3><p>One piece, printed in a single run. The TPU is soft and squishy. The four-facet cube turns into an eight-facet rectangle and back into a cube again, in a loop that is both satisfying and calming.</p><p class="card-meta">TPU 98A &middot; Matte</p>
+        <div class="card-foot"><span></span><button class="vote" type="button" data-shape="infinity-cube-tpu" aria-pressed="false" aria-label="I would try the Infinity Cube (TPU)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg><span class="vlabel">I&rsquo;d try this</span><span class="vcount" aria-hidden="true">0</span></button></div></div>
       </article>
-      <article class="feat feat--play">
-        <div class="gal"><span class="feat-tag r-play">Play</span><img src="images/infinity-cube-in-pla-folded-into-a-cube.webp" alt="URMA Infinity Cube in PLA, folded into a cube" width="1932" height="1932" class="on"><img src="images/infinity-cube-in-pla-opened-into-a-rectangle.webp" alt="URMA Infinity Cube in PLA, opened into a rectangle" width="1932" height="1932" loading="lazy"><div class="dots"><button type="button" aria-label="Show photo 1 of 2" aria-pressed="true"></button><button type="button" aria-label="Show photo 2 of 2" aria-pressed="false"></button></div></div>
-        <div class="feat-body">
-          <h3>Infinity Cube</h3>
-          <p>The same four-facet cube in rigid PLA. It turns into an eight-facet rectangle and back again, with a firmer, crisper feel than the soft TPU version.</p>
-          <p class="feat-meta">PLA &middot; Rigid</p>
-          <div class="feat-foot"><span></span><a class="pick" href="#feedback" data-pick="Infinity Cube (PLA)">I&rsquo;d try this</a></div>
-        </div>
+      <article class="card">
+        <div class="gal"><span class="tag r-play">Play</span><img src="images/infinity-cube-in-pla-folded-into-a-cube.webp" alt="URMA Infinity Cube in PLA, folded into a cube" width="1932" height="1932" class="on"><img src="images/infinity-cube-in-pla-opened-into-a-rectangle.webp" alt="URMA Infinity Cube in PLA, opened into a rectangle" width="1932" height="1932" loading="lazy"><div class="dots"><button type="button" aria-label="Show photo 1 of 2" aria-pressed="true"></button><button type="button" aria-label="Show photo 2 of 2" aria-pressed="false"></button></div></div>
+        <div class="card-body"><h3>Infinity Cube</h3><p>The same four-facet cube in rigid PLA. It turns into an eight-facet rectangle and back again, with a firmer, crisper feel than the soft TPU version.</p><p class="card-meta">PLA &middot; Rigid</p>
+        <div class="card-foot"><span></span><button class="vote" type="button" data-shape="infinity-cube-pla" aria-pressed="false" aria-label="I would try the Infinity Cube (PLA)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg><span class="vlabel">I&rsquo;d try this</span><span class="vcount" aria-hidden="true">0</span></button></div></div>
       </article>
-    </div>
-
-    <div class="grid" style="margin-top:20px">
       <article class="card">
         <div class="gal"><span class="tag r-play">Play</span><img src="images/spiral-focus-eight-pointed-ribbed-disc.webp" alt="URMA Spiral Focus, eight-pointed ribbed disc" width="1932" height="1932" class="on"></div>
         <div class="card-body"><h3>Spiral Focus</h3><p>Ribs turn out from a square hole in the middle to eight points at the edge, and every one of them moves against the next. Press the centre and it domes. Twist it and it folds into a cone. Let go and it settles back flat.</p><p class="card-meta">PLA &middot; Several colours</p>
-        <div class="card-foot"><span></span><a class="pick" href="#feedback" data-pick="Spiral Focus">I&rsquo;d try this</a></div></div>
+        <div class="card-foot"><span></span><button class="vote" type="button" data-shape="spiral-focus" aria-pressed="false" aria-label="I would try the Spiral Focus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg><span class="vlabel">I&rsquo;d try this</span><span class="vcount" aria-hidden="true">0</span></button></div></div>
       </article>
       <article class="card">
         <div class="gal"><span class="tag r-play">Play</span><img src="images/dragon-egg-in-rainbow-pla.webp" alt="URMA Dragon Egg in rainbow PLA" width="1932" height="1932" class="on"></div>
         <div class="card-body"><h3>Dragon Egg</h3><p>Overlapping scales on a hidden hinge. Squeeze and it opens; let go and it closes with a click.</p><p class="card-meta">PLA &middot; Print-in-place</p>
-        <div class="card-foot"><span></span><a class="pick" href="#feedback" data-pick="Dragon Egg">I&rsquo;d try this</a></div></div>
+        <div class="card-foot"><span></span><button class="vote" type="button" data-shape="dragon-egg" aria-pressed="false" aria-label="I would try the Dragon Egg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg><span class="vlabel">I&rsquo;d try this</span><span class="vcount" aria-hidden="true">0</span></button></div></div>
       </article>
       <article class="card">
         <div class="gal"><span class="tag r-play">Play</span><img src="images/orbit-with-its-rings-open.webp" alt="URMA Orbit with its rings open" width="1932" height="1932" class="on"><img src="images/orbit-folded-flat-into-a-disc.webp" alt="URMA Orbit folded flat into a disc" width="1932" height="1932" loading="lazy"><div class="dots"><button type="button" aria-label="Show photo 1 of 2" aria-pressed="true"></button><button type="button" aria-label="Show photo 2 of 2" aria-pressed="false"></button></div></div>
         <div class="card-body"><h3>Orbit</h3><p>Nested rings that spin freely inside each other. Open it up into a gyroscope, fold it flat into a disc, and keep it turning.</p><p class="card-meta">PLA &middot; Print-in-place</p>
-        <div class="card-foot"><span></span><a class="pick" href="#feedback" data-pick="Orbit">I&rsquo;d try this</a></div></div>
+        <div class="card-foot"><span></span><button class="vote" type="button" data-shape="orbit" aria-pressed="false" aria-label="I would try the Orbit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg><span class="vlabel">I&rsquo;d try this</span><span class="vcount" aria-hidden="true">0</span></button></div></div>
       </article>
       <article class="card">
         <div class="gal"><span class="tag r-play">Play</span><img src="images/flexi-dragon-stretched-out.webp" alt="URMA Flexi Dragon stretched out" width="1932" height="1932" class="on"><img src="images/flexi-dragon-curled.webp" alt="URMA Flexi Dragon curled" width="1932" height="1932" loading="lazy"><div class="dots"><button type="button" aria-label="Show photo 1 of 2" aria-pressed="true"></button><button type="button" aria-label="Show photo 2 of 2" aria-pressed="false"></button></div></div>
         <div class="card-body"><h3>Flexi Dragon</h3><p>Every joint moves. Printed already assembled, so the spine bends, the legs pose and the tail curls. Pose it on the desk, then fidget with it.</p><p class="card-meta">PLA &middot; Print-in-place</p>
-        <div class="card-foot"><span></span><a class="pick" href="#feedback" data-pick="Flexi Dragon">I&rsquo;d try this</a></div></div>
+        <div class="card-foot"><span></span><button class="vote" type="button" data-shape="flexi-dragon" aria-pressed="false" aria-label="I would try the Flexi Dragon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/></svg><span class="vlabel">I&rsquo;d try this</span><span class="vcount" aria-hidden="true">0</span></button></div></div>
       </article>
     </div>
   </div>
@@ -193,75 +183,66 @@
     <div>
       <p class="eyebrow" style="color:var(--cobalt-deep)">Try one, tell us</p>
       <h2 class="h2">Your hands know best.</h2>
-      <p class="sub">We are not selling yet. We are listening. Ask to try a shape, or tell us how one felt. Short and blunt is welcome. Running an office or shared workspace? Say so. That is who we are building for first.</p>
-      <ul class="asks">
-        <li>Did your hands settle, or did you stop noticing it was there?</li>
-        <li>Which shape did you reach for first, and which did you put down?</li>
-        <li>Too loud, too soft, too stiff, too small?</li>
-        <li>Where did you use it? Desk, classroom, commute, sofa?</li>
-      </ul>
+      <div data-copy="try">
+        <p class="sub">We are building URMA for offices and shared workspaces first. Tell us about your team and we will get in touch about a trial.</p>
+        <ul class="asks">
+          <li>No payment and no obligation.</li>
+          <li>We will reply to the email you give us, nothing else.</li>
+          <li>Tell us about your space so we can send the right shapes.</li>
+        </ul>
+      </div>
+      <div data-copy="fb" hidden>
+        <p class="sub">We are not selling yet. We are listening. Short and blunt is welcome, and you do not need to answer everything.</p>
+        <ul class="asks">
+          <li>Did your hands settle, or did you stop noticing it was there?</li>
+          <li>Which shape did you reach for first, and which did you put down?</li>
+          <li>Too loud, too soft, too stiff, too small?</li>
+          <li>Where did you use it? Desk, meeting, commute, sofa?</li>
+        </ul>
+      </div>
     </div>
 
     <div class="fbcard">
-      <form id="fbform" novalidate>
-        <fieldset class="seg">
-          <legend>I want to</legend>
-          <div class="opt"><input type="radio" name="mode" id="m-try" value="try" checked><label for="m-try">Try one</label></div>
-          <div class="opt"><input type="radio" name="mode" id="m-tried" value="tried"><label for="m-tried">Share feedback</label></div>
-        </fieldset>
+      <fieldset class="seg modeseg">
+        <legend>I want to</legend>
+        <div class="opt"><input type="radio" name="mode" id="m-try" value="try" checked><label for="m-try">Try one</label></div>
+        <div class="opt"><input type="radio" name="mode" id="m-fb" value="fb"><label for="m-fb">Share feedback</label></div>
+      </fieldset>
 
-        <div class="field">
-          <label for="obj">Which one</label>
-          <select id="obj">
-            <option value="Not sure yet">Not sure yet, surprise me</option>
-            <optgroup label="Settle (soft TPU)">
-              <option>Settle</option><option>Infinity Cube (TPU)</option>
-            </optgroup>
-            <optgroup label="Play (rigid PLA)">
-              <option>Play</option><option>Infinity Cube (PLA)</option><option>Spiral Focus</option><option>Dragon Egg</option><option>Orbit</option><option>Flexi Dragon</option>
-            </optgroup>
-          </select>
+      <form id="leadform" novalidate>
+        <div class="form-grid">
+          <div class="field"><label for="l-name">Your name *</label><input id="l-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+          <div class="field"><label for="l-email">Work email *</label><input id="l-email" name="email" type="email" autocomplete="email" maxlength="200" required></div>
+          <div class="field"><label for="l-company">Company *</label><input id="l-company" name="company" type="text" autocomplete="organization" maxlength="160" required></div>
+          <div class="field"><label for="l-role">Your role</label><input id="l-role" name="role" type="text" autocomplete="organization-title" maxlength="120"></div>
+          <div class="field"><label for="l-size">Team size</label>
+            <select id="l-size" name="team_size"><option value="">Pick one</option><option>1&ndash;10</option><option>11&ndash;50</option><option>51&ndash;200</option><option>200+</option></select></div>
+          <div class="field"><label for="l-interest">Interested in</label>
+            <select id="l-interest" name="interest"><option>Not sure yet</option><option>Settle (soft TPU)</option><option>Play (rigid PLA)</option><option>Both ranges</option></select></div>
+          <div class="field full"><label for="l-msg">About your space</label><textarea id="l-msg" name="message" maxlength="2000" placeholder="An open-plan office of 30, lots of long meetings, and a few people who never sit still."></textarea></div>
+          <div class="field hp" aria-hidden="true"><label for="l-web">Leave this empty</label><input id="l-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="field full check"><input id="l-consent" name="consent" type="checkbox" required><label for="l-consent">It is fine for URMA to contact me about trying these. I can ask to be removed at any time.</label></div>
         </div>
-
-        <fieldset class="seg" id="rate" hidden>
-          <legend>How did it feel</legend>
-          <div class="opt"><input type="radio" name="rate" id="r1" value="Not for me"><label for="r1">Not for me</label></div>
-          <div class="opt"><input type="radio" name="rate" id="r2" value="Okay"><label for="r2">Okay</label></div>
-          <div class="opt"><input type="radio" name="rate" id="r3" value="Good"><label for="r3">Good</label></div>
-          <div class="opt"><input type="radio" name="rate" id="r4" value="Keeper"><label for="r4">Keeper</label></div>
-        </fieldset>
-
-        <div class="field">
-          <label for="where">Where you use it</label>
-          <select id="where">
-            <option value="">Pick one</option>
-            <option>In our office</option><option>At my desk</option><option>In class</option><option>On the move</option><option>At home</option><option>Somewhere else</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="msg" id="msglabel">Anything we should know</label>
-          <textarea id="msg" placeholder="I get restless in long meetings and would like something quiet."></textarea>
-        </div>
-
-        <div class="field">
-          <label for="who">Your name (optional)</label>
-          <input id="who" type="text" autocomplete="name">
-        </div>
-
-        <div><button class="btn btn-blue" type="submit" id="go">Write my message</button></div>
+        <div><button class="btn btn-blue" type="submit">Request a trial</button></div>
+        <p class="formmsg" role="status" aria-live="polite"></p>
       </form>
 
-      <div class="result" id="result" hidden aria-live="polite">
-        <h3>Almost there. Send it to us.</h3>
-        <p>Copy this message and email it to <span class="addr">hello@urma.ee</span>. Add your own address in the email so we can reply.</p>
-        <textarea id="out" readonly aria-label="Your message"></textarea>
-        <div class="cta-row">
-          <button class="btn btn-ink" type="button" id="copy">Copy message</button>
-          <a class="btn" id="mail" href="mailto:hello@urma.ee">Open in email app</a>
+      <form id="fbform" novalidate hidden>
+        <div class="form-grid">
+          <div class="field full"><label for="f-product">Which shape are you talking about</label>
+            <select id="f-product" name="product"><option value="">Not sure, or the whole range</option>
+              <optgroup label="Settle (soft TPU)"><option>Infinity Cube (TPU)</option></optgroup>
+              <optgroup label="Play (rigid PLA)"><option>Infinity Cube (PLA)</option><option>Spiral Focus</option><option>Dragon Egg</option><option>Orbit</option><option>Flexi Dragon</option></optgroup></select></div>
+          <div class="field full"><label for="f-noticed">What did you notice when you used it?</label><textarea id="f-noticed" name="noticed" maxlength="2000"></textarea></div>
+          <div class="field full"><label for="f-change">What would you change?</label><textarea id="f-change" name="change_request" maxlength="2000"></textarea></div>
+          <div class="field full"><label for="f-context">Where and when did you use it?</label><textarea id="f-context" name="context" maxlength="2000" placeholder="At my desk during calls, on the train home, in a team meeting."></textarea></div>
+          <div class="field full"><label for="f-contact">Email (optional)</label><input id="f-contact" name="contact" type="email" autocomplete="email" maxlength="200" placeholder="Only if you are happy for us to follow up">
+          </div>
+          <div class="field hp" aria-hidden="true"><label for="f-web">Leave this empty</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
         </div>
-        <p class="copied" id="copied"></p>
-      </div>
+        <div><button class="btn btn-blue" type="submit">Send feedback</button></div>
+        <p class="formmsg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -295,6 +276,7 @@
 </defs></svg>
 
 
+<script src="config.js"></script>
 <script src="script.js" defer></script>
 </body>
 </html>

@@ -384,6 +384,13 @@ section[id]{scroll-margin-top:70px}
 .gal .r-settle{background:var(--cobalt);color:var(--white)}
 .gal .r-play{background:var(--ochre);color:var(--ink)}
 
+/* uniform product grid */
+.grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.grid{grid-template-columns:minmax(0,1fr)}}
+.gal img.tint{filter:hue-rotate(215deg) saturate(1.15)}
+.card-body h3{font-size:22px}
+
 /* range blocks */
 .gal--soft{background:var(--cobalt-soft)}
 .gal img.cut{object-fit:contain;padding:9%;filter:drop-shadow(0 18px 24px rgba(20,22,28,.22))}
@@ -415,12 +422,6 @@ section[id]{scroll-margin-top:70px}
 .fbcard form{display:grid;gap:20px}
 .fbcard .field input,.fbcard .field select,.fbcard .field textarea{background:var(--paper)}
 .fbcard .field textarea{min-height:120px}
-.result{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
-.result h3{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.015em}
-.result p{margin-top:8px;font-size:15px;color:rgba(20,22,28,.7);max-width:52ch}
-.result textarea{width:100%;margin-top:14px;min-height:150px;resize:vertical;border:1.5px solid var(--line);border-radius:12px;
-  padding:13px 15px;font-family:var(--body);font-size:15px;background:var(--paper);color:var(--ink)}
-.result .cta-row{margin-top:16px}
 .addr{font-family:var(--util);font-size:12px;font-weight:600;letter-spacing:.06em;user-select:all;border-bottom:2px solid var(--cobalt)}
 .copied{font-family:var(--util);font-size:11px;letter-spacing:.1em;margin-top:12px;min-height:1em}
 .foot-simple{padding-block:clamp(40px,5vw,64px) 28px;border-top:1px solid var(--line)}
@@ -428,3 +429,42 @@ section[id]{scroll-margin-top:70px}
 .card-foot,.feat-foot{justify-content:center}
 .card-foot>span,.feat-foot>span{display:none}
 
+
+/* votes */
+.vote{display:inline-flex;align-items:center;gap:9px;font-family:var(--util);font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;background:var(--paper);color:var(--ink);border:2px solid var(--ink);border-radius:100px;
+  padding:8px 8px 8px 14px;cursor:pointer;transition:transform .18s,background .18s,color .18s}
+.vote svg{width:17px;height:17px;flex:none}
+.vote .vcount{font-size:12px;min-width:30px;text-align:center;background:var(--ink);color:var(--paper);border-radius:100px;padding:5px 9px;font-variant-numeric:tabular-nums}
+.vote:hover:not(:disabled){transform:translateY(-2px)}
+.vote[aria-pressed="true"]{background:var(--cobalt);border-color:var(--cobalt);color:var(--white)}
+.vote[aria-pressed="true"] svg{fill:currentColor}
+.vote[aria-pressed="true"] .vcount{background:var(--white);color:var(--cobalt)}
+.vote:disabled{cursor:default;opacity:.8}
+.card-foot,.feat-foot{justify-content:center}
+.card-foot>span,.feat-foot>span{display:none}
+.feat--play .vote{background:transparent}
+.feat--play .vote[aria-pressed="true"]{background:var(--cobalt)}
+.votenote{margin-top:14px;font-family:var(--util);font-size:11px;font-weight:600;letter-spacing:.08em;color:rgba(20,22,28,.6);max-width:70ch}
+
+
+.vote:disabled{cursor:default;opacity:.7}
+.vote.is-busy{opacity:.7}
+
+/* forms */
+.modeseg{margin-bottom:22px}
+.fbcard form[hidden]{display:none}
+.fbcard .form-grid{max-width:none;margin-top:0}
+.fbcard .field.full{grid-column:1/-1}
+.fbcard .form-grid{margin-bottom:20px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.check{flex-direction:row;align-items:flex-start;gap:12px}
+.check input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--cobalt)}
+.check label{font-family:var(--body);font-size:14.5px;letter-spacing:0;text-transform:none;font-weight:400;color:rgba(20,22,28,.78)}
+.formmsg{margin-top:14px;font-size:15px;min-height:1.4em}
+.formmsg.ok{color:var(--kids-deep);font-weight:600}
+.formmsg.err{color:#B3261E}
+.fbcard.done form{display:none}
+.thanks h3{font-family:var(--display);font-weight:800;font-size:clamp(24px,3vw,32px);letter-spacing:-.025em}
+.thanks p{margin-top:10px;max-width:46ch;color:rgba(20,22,28,.74)}
+.check input{padding:0;border:0;background:none;width:20px}
